@@ -1,0 +1,34 @@
+
+
+  
+  footer {
+    background-color: #000; /* Footer background color set to black */
+    color: #fff;
+    padding: 20px 0; 
+    position: relative;
+  }
+  
+  .footercontainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  footer nav {
+    margin-top: 10px;
+    position: relative;
+  }
+  
+  footer nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  @media (max-width: 768px) {
+    footer nav a {
+      display: block;
+      margin: 5px 0;
+    }
+  }
+  

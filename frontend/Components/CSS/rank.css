@@ -1,0 +1,85 @@
+/* styles.css for h1*/
+
+
+
+
+body {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  position: relative; /* Ensure relative positioning for absolute positioning */
+}
+
+
+
+
+
+/* Rest of your styles... */
+
+
+.options {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.option-btn {
+  padding: 8px 16px; /* Smaller padding */
+  border: none;
+  border-radius: 3px; /* Smaller border radius */
+  background-color: #222; /* Dark background */
+  color: #fff; /* White text */
+  cursor: pointer;
+  margin-right: 8px; /* Smaller margin */
+}
+
+.option-btn.selected {
+  background-color: #444; /* Darker background when selected */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #333;
+  color: #fff;
+}
+
+th, td {
+  padding: 8px;
+  border-bottom: 1px solid #555;
+  color: #fff;
+}
+
+th {
+  text-align: left;
+}
+
+tbody tr:hover {
+  background-color: #555;
+}
+
+
+h2 {
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  font-weight: bold; /* Adjust the font weight as needed */
+  margin-top: 0; /* Remove default margin */
+  color: #fff; /* Set color to white */
+  position: relative; /* Required for positioning the pseudo-element */
+}
+
+h2::after {
+  content: ''; /* Required for pseudo-elements */
+  position: absolute;
+  bottom: -5px; /* Adjust the distance from the text */
+  left: 5%; /* Position at the center */
+  width: 160px; /* Adjust the width of the underline */
+  height: 2px; /* Adjust the thickness of the underline */
+  background-color: #ff7f50; /* Stylish underline color */
+  transform: translateX(-5%); /* Center the underline horizontally */
+}

@@ -1,0 +1,80 @@
+body {
+  font-family: "Montserrat - extra bold", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000;
+  }
+  
+  .container {
+    background-color: #fff;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+  }
+  
+  h1 {
+  
+    color: #ffffff;
+    margin-top: 0%;
+    text-align: center; /* Center text horizontally */
+    position: absolute;
+    top: 23%;
+    transform: translateY(-50%); /* Center vertically */
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  h5 {
+    /* Set a preferred font family */
+    /* Adjust font size as needed */
+    line-height: 1.5; /* Set line spacing for readability */
+    margin-bottom: 20px; /* Add some margin below the text */
+    color: #333; /* Set text color to a dark gray */
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  input[type="email"],
+  input[type="password"],
+  input[type="submit"] {
+    width: calc(100% - 22px); /* Adjusted for padding and border */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-family: Helvetica ;
+      font-size: 16px
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #6c6c6c;
+  }
+  
+  .rest_logo img {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Center relative to itself */
+    max-width: 10%;
+    height: auto;
+    
+  }

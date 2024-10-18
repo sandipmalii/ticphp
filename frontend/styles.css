@@ -1,0 +1,260 @@
+
+/* 
+footer {
+  background-color: #000; 
+  color: #fff;
+  padding: 20px 0; 
+  position: relative;
+}
+
+.footercontainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  
+}
+
+navdowm {
+  margin-top: 10px;
+  position: relative  ;
+}
+
+navdowm a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+  navdowm a {
+    display: block;
+    margin: 5px 0;
+  }
+} */
+
+
+.entry-section {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+
+.entry-section .left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.entry-banner {
+  width: 80%;
+  height: 80%;
+}
+
+.entry-heading {
+  color: white;
+  font: 1.5em;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.entry-section .right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: space-evenly;
+  /* gap: 20%; */
+}
+
+.entry-section .right .buttons {
+  font-family: 'Dosis', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  /* Note: This will override the previous font-family declaration */
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.entry-button {
+  /* padding: 15px 20px; */
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  background: linear-gradient(to right, #8041F2, #3095ED);
+  border-radius: 8px;
+  transition: .2s ease-in-out;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  /* margin: 1em; */
+}
+.entry-button img{
+  margin-right: 5px;
+  /* flex: 1; */
+}
+
+.entry-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.20), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
+  border-radius: 30px;
+}
+
+@media screen and (width<=768px) {
+  .entry-section{
+    flex-direction: column;
+    gap: 10px;
+  }
+  .entry-section .left .entry-banner{
+    width: 40%;
+    height: 40%;
+  }
+  .entry-section .left{
+    height: 50%;
+    padding: 40px;
+  }
+  .entry-section .right{
+    /* flex: 4; */
+    height: 50%;
+    gap: 40px;
+  }
+}
+@media screen and (width<=606px) {
+  .entry-section{
+    gap: 15px;
+  }
+  .entry-section .left{
+    padding: 40px;
+  }
+  .entry-section .left .entry-banner{
+    width: 80%;
+    height: 50%;
+  }
+  .entry-button {
+    font-size: 15px;
+  }
+}
+@media screen and (width<=426px) {
+  .entry-section{
+    gap: 15px;
+  }
+  .entry-section .left{
+    padding: 30px;
+  }
+  .entry-section .left .entry-banner{
+    width: 80%;
+    height: 50%;
+  }
+  .entry-button {
+    font-size: 15px;
+  }
+}
+@media screen and (width<=325px) {
+  .entry-section{
+    gap: 10px;
+  }
+  .entry-section .left .entry-banner{
+    width: 80%;
+    height: 50%;
+  }
+  .entry-section .left{
+    padding: 20px;
+  }
+  .entry-button {
+    font-size: 13px;
+    width: 100%;
+  }
+}
+
+
+
+/* =======RANKING======== */
+.ranking-board{
+  overflow: auto;
+}
+
+table {
+  width: 30%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  /* Center the table horizontally */
+  border: 2px solid #ff7f50;
+  /* Stylish border color */
+  border-radius: 10px;
+  width: 500px;
+  /* Adjust width as needed */
+
+}
+
+
+thead {
+  background-color: #333;
+  color: #fff;
+}
+
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #555;
+  color: #fff;
+}
+
+th {
+  text-align: left;
+}
+
+tbody tr:hover {
+  background-color: #555;
+}
+
+h3 {
+  font-size: 1.5rem;
+  /* Adjust the font size as needed */
+  font-weight: bold;
+  /* Adjust the font weight as needed */
+  margin-top: 0;
+  /* Remove default margin */
+  color: #fff;
+  /* Set color to white */
+  position: relative;
+  /* Required for positioning the pseudo-element */
+  text-align: center;
+  font-weight: bold;
+  /* Adjust the font weight as needed */
+}
+
+h3::after {
+  content: '';
+  /* Required for pseudo-elements */
+  position: absolute;
+  bottom: -5px;
+  /* Adjust the distance from the text */
+  left: 50%;
+  /* Position at the center */
+  transform: translateX(-50%);
+  /* Center the underline horizontally */
+  width: 200px;
+  /* Adjust the width of the underline */
+  height: 2px;
+  /* Adjust the thickness of the underline */
+  background-color: #ff7f50;
+  /* Stylish underline color */
+}
+
+h4 {
+  font-family: LatoGeorgia;
+  font-size: 1.5rem;
+  /* Adjust the font size as needed */
+  margin-top: 0;
+  /* Remove default margin */
+  color: #fff;
+  /* Set color to white */
+  position: relative;
+  /* Required for positioning the pseudo-element */
+  text-align: center;
+}

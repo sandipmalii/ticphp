@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Tic Tac Toe</title>
+    <link rel="stylesheet" href="../CSS/about.css">
+ 
+
+</head>
+<body>
+    <iframe src="/responsive-navbar-tictactoe/index.html" frameborder="0" scrolling="no" width="100%" style="border: none;"></iframe>
+
+<div class="container">
+    <h1>About Tic Tac Toe</h1>
+
+<div class="content">
+    <button id="checkLoginButton">Check User Login</button>
+    <input type="file" id="avatarInput" style="display: none;">
+    <button id="uploadBtn" class="upload-btn">Upload Avatar</button>
+    <img id="avatarPreview" src="#" alt="Preview" style="display: none; max-width: 300px;">
+    <h2>Gameplay</h2>
+    <p>
+        Tic Tac Toe, also known as Noughts and Crosses, is a classic paper-and-pencil game enjoyed by people of all ages around the world. This digital adaptation brings the timeless fun of Tic Tac Toe to your fingertips, allowing you to play against friends or challenge the computer.
+    </p>
+
+    <h2>Features</h2>
+    <ol>
+        <li><strong>Single Player Mode:</strong> Play against an AI opponent with adjustable difficulty levels, providing an engaging challenge for players of all skill levels.</li>
+        <li><strong>Two Player Mode:</strong> Compete against a friend on the same device, taking turns to outmaneuver each other and claim victory.</li>
+        <li><strong>Customization Options:</strong> Tailor your gaming experience by choosing your preferred symbol, adjusting AI difficulty, and selecting from different grid themes.</li>
+        <li><strong>Game Statistics:</strong> Track your wins, losses, and draws to monitor your progress and improve your skills over time.</li>
+    </ol>
+
+    <h2>Organization</h2>
+    <ol>
+        <li><strong>Main Menu:</strong> The central hub where players can access different game modes, settings, and view their game statistics.</li>
+        <li><strong>Game Interface:</strong> A clean and intuitive interface displaying the Tic Tac Toe grid, player symbols, and options for making moves.</li>
+        <li><strong>Settings:</strong> Allows players to customize their gameplay experience, including AI difficulty, symbol selection, and grid themes.</li>
+        <li><strong>Statistics:</strong> Provides players with an overview of their performance, including the number of wins, losses, and draws.</li>
+        <li><strong>Help & Support:</strong> Access resources such as rules of the game, gameplay tips, and customer support for any inquiries or issues.</li>
+    </ol>
+
+    <h2>Conclusion</h2>
+    <p>
+        Whether you're looking to pass the time, hone your strategic skills, or engage in friendly competition with friends, this digital rendition of Tic Tac Toe offers a convenient and enjoyable way to experience this beloved game anytime, anywhere.
+    </p>
+    </div>
+    
+</div>
+<script>
+    async function checkUserLogin() {
+        try {
+          // Make a GET request to your backend endpoint that checks user login status
+          const response = await fetch('http://localhost:8000/api/user/loggedUser', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              // Assuming you need to include a token for authentication
+              'Authorization': 'Bearer ' + localStorage.getItem('authToken') // Assuming you store the authentication token in local storage
+            }
+          });
+    
+          // Check if the response is successful
+          if (response.ok) {
+            // Parse the JSON response body
+            const data = await response.json();
+            // Check if the user is logged in
+            if (data.user) {
+              alert('User is logged in');
+              alert(data.user.email)
+            } else {
+              alert('User is not logged in');
+            }
+          } else {
+            // If the response is not successful, handle the error
+            console.error('Error checking user login:', response.statusText);
+          }
+        } catch (error) {
+          // If an error occurs during the request, log the error
+          console.error('Error checking user login:', error);
+        }
+      }
+      document.getElementById('checkLoginButton').addEventListener('click', () => {
+        checkUserLogin();
+      });
+</script>
+
+<script>
+  // Function to handle image upload
+  async function handleImageUpload(event) {
+    const file = event.target.files[0];
+    if (!file){ 
+       
+      return};
+
+    try {
+        // Get JWT token from local storage
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+            alert('Please login to upload avatar.');
+            return;
+        }
+       
+        // Make a request to fetch user details using the auth token
+        const userResponse = await fetch('http://localhost:8000/api/user/loggedUser', {
+            method: 'GET',
+            headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('authToken')
+            }
+        });
+       
+        if (!userResponse.ok) {
+            throw new Error('Failed to fetch user details.');
+        }
+       
+        const userData = await userResponse.json();
+        alert(userData)
+        if (!userData.email) {
+            throw new Error('User email not found.');
+        }
+        
+        const formData = new FormData();
+        formData.append('avatar', file);
+        formData.append('email', userData.email); // Add user email to the form data
+
+        // Display file name and user email in alert
+        alert(`File Name: ${file.name}\nUser Email: ${userData.email}`);
+
+        const response = await fetch('http://localhost:8000/api/user/updateUserAvatar', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            },
+            body: formData
+        });
+
+        const data = await response.json();
+        if (data.success) {
+            alert('Avatar uploaded successfully!');
+            // Optionally, update the avatar preview on the page
+            document.getElementById('avatarPreview').src = URL.createObjectURL(file);
+            document.getElementById('avatarPreview').style.display = 'block';
+        } else {
+            alert(data.message);
+        }
+
+        // Check if the file was successfully uploaded
+        if (response.ok) {
+            alert('File uploaded successfully!');
+        } else {
+            alert('Failed to upload file.');
+        }
+    } catch (error) {
+        console.error('Error uploading avatar:', error);
+        alert('Error uploading avatar. Please try again later.');
+    }
+}
+
+
+  // Attach event listener to the upload button
+  document.getElementById('uploadBtn').addEventListener('click', () => {
+    document.getElementById('avatarInput').click();
+  });
+
+  // Attach event listener to the file input for image upload
+  document.getElementById('avatarInput').addEventListener('change', handleImageUpload);
+</script>
+</body>
+<div>
+    <footer id="footer">
+        <div class="footercontainer">
+         
+          <nav>
+            <a href="../HTMLS/privacy.html">Privacy Policy</a> |
+            <a href="./term.html">Terms of Service</a> |
+            <a href="../HTMLS/about.html">About</a> |
+            <a href="../HTMLS/developer.html">Developers</a> |
+            <a href="../HTMLS/feedback.html">Feedback</a>
+          </nav> 
+           <p>© TicTacToe. All rights reserved.</p>
+        </div>
+      </footer></div>
+
+
+</html>

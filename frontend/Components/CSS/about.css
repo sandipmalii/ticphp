@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #0F0E17;
+    color: #fff;
+}
+
+
+
+/* styles.css for h1*/
+h1 {
+    font-family: Arial, sans-serif;
+    color: #fff; /* White text color */
+    text-align: center;
+    position: relative; /* Required for positioning the pseudo-element */
+     margin-top: 3%;
+}
+
+h1::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    bottom: -5px; /* Adjust the distance from the text */
+    left: 50%; /* Position at the center */
+    width: 500px; /* Adjust the width of the underline */
+    height: 2px; /* Adjust the thickness of the underline */
+    background-color: #ff7f50; /* Stylish underline color */
+    transform: translateX(-50%); /* Center the underline horizontally */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    }
+
+    .content{
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+ 
+    }
+h1 {
+    text-align: center;
+}
+h2 {
+    margin-top: 30px;
+}
+p {
+    line-height: 1.6;
+}
+ol {
+    color: #fff;
+}
+li {
+    margin-bottom: 10px;
+}
+
+
+
+
+ 
+footer {
+  background-color: #000; /* Footer background color set to black */
+  color: #fff;
+  padding: 20px 0; 
+  position: relative;
+}
+
+.footercontainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+footer nav {
+  margin-top: 10px;
+  position: relative;
+}
+
+footer nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+  footer nav a {
+    display: block;
+    margin: 5px 0;
+  }
+}

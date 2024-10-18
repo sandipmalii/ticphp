@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="../CSS/mainboard.css">
+</head>
+<body>
+   
+    <div class="container">
+        <!-- <a href="/index.php" class="cross-btn"> 
+            <img src="cross_icon.png" alt="Cross" class="cross-img">
+        </a> -->
+        <a href="/index.php" class="cross-btn">X</a> 
+        <h1>Tic Tac Toe</h1>
+        <div class="difficulty">
+            <label for="difficulty">Choose difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+        <div id="stats-container">
+          
+            <div id="easy-stats">Easy: Wins - 0 | Losses - 0 | Draws - 0 | Points - 0</div>
+            <div id="medium-stats" style="display: none;">Medium: Wins - 0 | Losses - 0 | Draws - 0 | Points - 0</div>
+            <div id="hard-stats" style="display: none;">Hard: Wins - 0 | Losses - 0 | Draws - 0 | Points - 0</div>
+        </div>
+        
+        <script>
+            document.getElementById("difficulty").addEventListener("change", function() {
+                var temp=this.value;
+                if(temp=="medium")
+                {
+                    document.getElementById("easy-stats").style.display = "none";
+                    document.getElementById("hard-stats").style.display = "none";
+                    document.getElementById("medium-stats").style.display = "inline-block";
+                }
+                else if(temp=="easy")
+                {
+                    document.getElementById("easy-stats").style.display = "inline-block";
+                    document.getElementById("hard-stats").style.display = "none";
+                    document.getElementById("medium-stats").style.display = "none";
+                }
+                else
+                {
+                    document.getElementById("easy-stats").style.display = "none";
+                    document.getElementById("hard-stats").style.display = "inline-block";
+                    document.getElementById("medium-stats").style.display = "none";
+                }
+            });
+            </script>
+    
+        
+        <div id="board" class="board">
+            <!-- The game board will be generated here -->
+        </div>
+        <div id="message" class="message"></div>
+        <div> 
+            <button id="restartBtn" class="restart-btn">Restart Game</button>
+        </div>
+        <div id="popupModal" class="modal">
+            <div class="modal-content">
+                <span id="popupMessage"></span>
+                <button id="closePopupBtn">Close</button>
+            </div>
+        </div>
+        
+    
+
+    <script src="../JS/mainboard.js"></script>
+  
+</body>
+
+</html>

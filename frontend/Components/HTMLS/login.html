@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/login.css">
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+    <!--=============== FONT AWESOME ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div class="container" id="container">
+
+    <div class="form-container sign-up-container">
+        <form action="#">
+            <h1>Create Account</h1>
+            <div class="social-container">
+                <a  class="social" id="googleSignIn"><i class="fab fa-google-plus-g"></i> </a>
+            </div>
+            <span>or use your email for registration</span>
+            <input type="text" name="username" id="username" required placeholder="UserName" />
+            <input type="email" name="email" placeholder="Email" id="email" required />
+            <input type="password" placeholder="Password" id="password" required /> 
+            <button id="signUpButton">Sign Up</button>
+        </form>
+    </div>
+
+    <div class="form-container sign-in-container">
+        <form action="#">
+            <h1>Sign in</h1>
+            <div class="social-container">
+                <a  class="social" id="googleIn"><i class="fab fa-google-plus-g"></i> </a>
+            </div>
+            <span>or use your account</span>
+            <input type="email" name="email" placeholder="Email / Username" id="emailSignIn" required />
+            <input type="password" placeholder="Password" id="passwordSignIn" required />  
+            <a href="./passwordMailSend.html">Forgot your password?</a>
+            <!-- <input type="submit" class="login__button" id="loginButton" value="Login"> -->
+            <button id="loginButton">Login</button>
+            
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<!-- JavaScript -->
+<script src="../JS/login.js"></script>
+
+<script>
+    document.getElementById('signUpButton').addEventListener('click', async function(e) {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+    
+        const userData = {
+            name: username,
+            email: email,
+            password: password,
+            
+            tc: true,
+        };
+    
+        try {
+            
+            const response = await fetch('http://localhost:8000/api/user/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            });
+    
+            const responseData = await response.json();
+    
+            if (response.ok) {
+                // Registration successful
+                console.log(responseData);
+                 
+                // Redirect or perform any other action after successful registration
+               // window.location.href = "./home.html";
+               
+               Toastify({
+                text: "Sign Up SUCCESSFUL",
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
+            } else {
+                // Registration failed
+                console.error(responseData);
+                alert("Registration failed. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error during registration:", error);
+            alert("An error occurred during registration. Please try again later.");
+        }
+    });
+
+    
+    //*******LOGIN********
+    document.getElementById('loginButton').addEventListener('click', async function(e) {
+        e.preventDefault();
+        const email = document.getElementById("emailSignIn").value;
+        const password = document.getElementById("passwordSignIn").value;
+    
+        const userData = {
+            email: email,
+            password: password
+        };
+    
+        try {
+            const response = await fetch('http://localhost:8000/api/user/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            });
+    
+            const responseData = await response.json();
+    
+            if (response.status === 200) {
+                // Login successful
+                
+               
+                window.location.href = "/index.php";
+                saveAuthToken(responseData.token)
+                // Redirect or perform any other action after successful login
+                Toastify({
+                    text: "LOGIN SUCCESSFUL",
+                    duration: 3000,
+                    destination: "https://github.com/apvarun/toastify-js",
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "left", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                      background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    },
+                    onClick: function(){} // Callback after click
+                  }).showToast();
+            } else {
+                // Login failed
+                console.error(responseData);
+                
+                Toastify({
+                    text: "LOGIN UNSUCCESSFUL",
+                    duration: 3000,
+                    destination: "https://github.com/apvarun/toastify-js",
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "right", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                      background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    },
+                    onClick: function(){} // Callback after click
+                  }).showToast();
+            }
+        } catch (error) {
+            console.error("Error during login:", error);
+            alert("An error occurred during login. Please try again later.");
+        }
+    });
+    function saveAuthToken(token) {
+        localStorage.setItem('authToken', token);
+      }
+// Function to retrieve logged-in user information from the backend
+
+    
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+</html>

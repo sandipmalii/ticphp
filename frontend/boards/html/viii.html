@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board8</title>
+    <link rel="stylesheet" href="../css/viii.css">
+</head>
+<body>
+
+ <!--====================  automaic ====================-->
+
+ <h2>👋 Tic-Tac-Toe!</h2>
+<select onChange="setIaMode(this.value)">
+  <option value="2">Difficult</option>
+  <option value="1">Medium</option>
+  <option value="0">Hard</option>
+</select>
+
+<div>
+  <div class="friendly-message">Lets play</div>
+  <table>
+    <tr>
+      <td>
+        <button class="game-btn" onClick="onClickButton(this)" id='0' />
+      </td>
+      <td>
+        <button class="game-btn" onClick="onClickButton(this)" id='1' />
+      </td>
+      <td>
+        <button class="game-btn" onClick="onClickButton(this)" id='2' />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="game-btn" onClick="onClickButton(this)" id='3' />
+      </td>
+      <td>
+        <button class="game-btn" onClick="onClickButton(this)" id='4' />
+      </td>
+      <td>
+        <button class="game-btn" onClick="onClickButton(this)" id='5' />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="game-btn" onClick="onClickButton(this)" id='6' />
+      </td>
+      <td>
+        <button class="game-btn" onClick="onClickButton(this)" id='7' />
+      </td>
+      <td>
+        <button class="game-btn" onClick="onClickButton(this)" id='8' />
+      </td>
+    </tr>
+  </table>
+</div>
+
+<button class="reset-btn" onClick="resetClick()">reset</button>
+
+
+    <script src="../js/viii.js"></script>
+</body>
+</html>

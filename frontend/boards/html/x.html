@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board10</title>
+    <link rel="stylesheet" href="../css/x.css">
+</head>
+<body>
+
+ <!--==================== slow automaic ====================-->
+ <div>
+    <!--  header  -->
+      <h1 class="gamePage">Tic Tac Toe game | XO game</h1>
+    <!--  end game message  -->
+      <div id="who-win" class="popup hide">
+        <p id="win-message"></p>
+      </div>
+    </div>
+    <div class="wrapper">
+      <!-- game board with 9 buttons -->
+      <div class="container">
+        <button class="button-option" data-row="1" data-column="1" data-priority="1"></button>
+        <button class="button-option" data-row="1" data-column="2" data-priority="1"></button>
+        <button class="button-option" data-row="1" data-column="3" data-priority="1"></button>
+        <button class="button-option" data-row="2" data-column="1" data-priority="1"></button>
+        <button class="button-option" data-row="2" data-column="2" data-priority="1"></button>
+        <button class="button-option" data-row="2" data-column="3" data-priority="1"></button>
+        <button class="button-option" data-row="3" data-column="1" data-priority="1"></button>
+        <button class="button-option" data-row="3" data-column="2" data-priority="1"></button>
+        <button class="button-option" data-row="3" data-column="3" data-priority="1"></button>
+      </div>
+      <!--choose the O or X  -->
+      <div class="popup choose-letter">
+        <p id="message">Play with</p>
+        <div class="letter-buttons">
+          <button class="letter-button">X</button>
+          <button class="letter-button">O</button>
+        </div>
+      </div>
+      <!-- reset button -->
+      <button id="restart">Restart</button>
+    </div>
+ 
+ 
+
+    <script src="../js/x.js"></script>
+</body>
+</html>

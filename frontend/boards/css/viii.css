@@ -1,0 +1,56 @@
+body {
+    font-family: system-ui;
+    background: #f06d06;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .game-btn:disabled,
+  .game-btn[disabled] {
+    cursor: not-allowed;
+  }
+  
+  .game-btn {
+    height: 70px;
+    width: 70px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid gray;
+    background-color: silver;
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .reset-btn {
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid gray;
+    background-color: white;
+    font-size: 18px;
+    font-weight: bold;
+    color: #f06d06;
+    margin: 24px 0 0;
+  }
+  
+  .friendly-message {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 8px;
+  }
+  
+  select {
+    border-radius: 10px;
+    padding: 6px;
+    background: orange;
+    border: 2px solid gray;
+    font-size : 18px;
+    font-weight: 700;
+    color: white;
+  }

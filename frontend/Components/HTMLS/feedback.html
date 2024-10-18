@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEEDBACK</title>
+    <link rel="stylesheet" href="../CSS/feedback.css">
+</head>
+<body>
+	<iframe src="/responsive-navbar-tictactoe/index.html" frameborder="0" scrolling="no" width="100%" style="border: none;"></iframe> 
+<h2> FEEDBACK FORM</h2>
+
+<div class="content">
+	<header>
+		<h1>Feel free to drop us your feedback.</h1>
+		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1457119/feedback-form-template.svg"
+			  alt="A woman is sitting on the floor and working on a laptop (vector illustration)" />
+	</header>
+	<main mv-app="feedbackForm"
+			mv-storage="#data"
+			mv-source="#source"
+			mv-mode="read">
+		<form mv-multiple="feedback">
+			<label>
+				<h3>
+					OVERALL RATING?
+				</h3>
+				
+				<div class="tickmarks">
+					<span mv-multiple="tickmark"
+							mv-value="1 .. 5"
+							mv-storage="none"
+							class="[if($this = score, highlight)]"
+							mv-action="set(score, $this)"></span>
+				</div>
+				
+				<input property="score"
+						 type="range" max="5" min="1"
+						 style="--score: [score * (100/5)]%" />
+				
+				<div class="legend">
+					<span mv-action="set(score, 1)">
+						1
+					</span>
+					<span mv-action="set(score, 2)">
+						2
+					</span>
+					<span mv-action="set(score, 3)">
+						3
+					</span>
+					<span mv-action="set(score, 4)">
+						4
+					</span>
+					<span mv-action="set(score, 5)">
+						5
+					</span>
+				</div>
+			</label>
+			
+			<textarea property="comment"
+						 cols="30" rows="5"
+						 placeholder="Shape our future! Share your thoughts and help paint a brighter experience..."></textarea>
+
+			<div class="mv-bar">
+				<button class="mv-save"
+						  mv-action="add(feedback)">
+					Send Feedback
+				</button>
+			</div>
+		</form>
+	</main>
+</div>
+
+<data>
+	<h2>Stored Data</h2>
+	<pre id="data"></pre>
+</data>
+
+<!-- We need an empty source (which is different from the storage) for not to show end-users previously-stored feedback of other users. -->
+<div id="source" hidden>
+{
+	"feedback": [
+		{}
+	]
+}
+</div>
+
+</body>
+<div>
+    <footer id="footer">
+        <div class="footercontainer">
+         
+          <nav>
+            <a href="../HTMLS/privacy.html">Privacy Policy</a> |
+            <a href="./term.html">Terms of Service</a> |
+            <a href="../HTMLS/about.html">About</a> |
+            <a href="../HTMLS/developer.html">Developers</a> |
+            <a href="../HTMLS/feedback.html">Feedback</a>
+          </nav> 
+           <p>© TicTacToe. All rights reserved.</p>
+        </div>
+      </footer></div>
+
+</html>

@@ -1,0 +1,49 @@
+13-02-2024 [ TUE ] Starting Date Falgun 1 gata
+
+17-02-2024 [ Sat ] Designing complete grnu xa
+
+09-03-2024 [ Complete grnu xa target ] 
+
+
+
+Objective
+ 
+Target :- 07 - 45
+
+16:49 13-02-2024
+
+POINT's
+ 
+Win:- 300 points
+non-stop(5 games win):- 2X (Last 5 games)
+loss= 0
+draw:- 100
+queit:- -100
+daily checkin= 1
+
+PLAYING
+
+computer free ( 4 types of board / 1 premiun)
+
+
+RANK
+more win + gold + max win
+
+
+Algorithm
+	with comp:-
+		easy :- 4 win 1 loss
+		medium :- 2-3/5
+		hard :- never loss
+
+FOR BUYING
+ 
+2/3  boards  with points
+ another types Rs 19 - 99
+
+
+
+
+                                                                       
+
+                                                                                             10:56 13-02-2024
